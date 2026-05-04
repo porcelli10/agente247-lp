@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Agente 24/7 que responde WhatsApp e Instagram, qualifica leads, agenda e faz follow-up automático — sem você precisar estar online.">
+  <title>Agente 24/7 — Nunca Mais Perca um Cliente por Demora no Atendimento</title>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1107612128220661');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1107612128220661&ev=PageView&noscript=1"/></noscript>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --indigo: #4338ca;
+      --indigo-dark: #3730a3;
+      --indigo-light: #6366f1;
+      --green: #16a34a;
+      --green-light: #22c55e;
+      --yellow: #eab308;
+      --bg: #0a0a14;
+      --bg2: #0f0f1e;
+      --bg3: #13132a;
+      --surface: #1a1a35;
+      --border: rgba(99,102,241,0.18);
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --radius: 12px;
+      --max: 900px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── UTILS ─────────────────────────────── */
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    .section { padding: 72px 0; }
+    .tag {
+      display: inline-block;
+      background: rgba(99,102,241,0.15);
+      border: 1px solid rgba(99,102,241,0.35);
+      color: #a5b4fc;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .text-center { text-align: center; }
+    .accent { color: #818cf8; }
+    .green { color: var(--green-light); }
+    .yellow { color: var(--yellow); }
+
+    /* ── ANNOUNCE BAR ───────────────────────── */
+    .announce {
+      background: linear-gradient(90deg, var(--indigo), #7c3aed);
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: .01em;
+    }
+    .announce span { opacity: .85; }
+
+    /* ── HERO ───────────────────────────────── */
+    #hero {
+      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(99,102,241,0.22) 0%, transparent 70%), var(--bg);
+      padding: 56px 0 72px;
+      text-align: center;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(239,68,68,0.12);
+      border: 1px solid rgba(239,68,68,0.3);
+      color: #fca5a5;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .hero-headline {
+      font-size: clamp(30px, 5.5vw, 52px);
+      font-weight: 900;
+      line-height: 1.12;
+      letter-spacing: -.02em;
+      margin-bottom: 20px;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-sub {
+      font-size: clamp(16px, 2.2vw, 19px);
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+    .hero-video-wrap {
+      max-width: 680px;
+      margin: 0 auto 36px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 60px rgba(99,102,241,0.18);
+      position: relative;
+      background: #000;
+    }
+    .hero-video-wrap video {
+      width: 100%;
+      display: block;
+      max-height: 400px;
+      object-fit: cover;
+    }
+    .hero-badges {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .hero-badges span { display: flex; align-items: center; gap: 6px; }
+    .hero-badges svg { color: var(--green-light); }
+
+    /* ── CTA BUTTON ─────────────────────────── */
+    .btn-primary {
+      display: inline-block;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 800;
+      padding: 18px 40px;
+      border-radius: 100px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform .18s, box-shadow .18s;
+      box-shadow: 0 8px 32px rgba(34,197,94,0.35);
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(34,197,94,0.45); }
+    .btn-secondary {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--indigo), var(--indigo-light));
+      color: #fff;
+      font-size: 17px;
+      font-weight: 700;
+      padding: 16px 36px;
+      border-radius: 100px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform .18s, box-shadow .18s;
+      box-shadow: 0 8px 28px rgba(99,102,241,0.3);
+    }
+    .btn-secondary:hover { transform: translateY(-2px); }
+
+    /* ── PAIN SECTION ───────────────────────── */
+    #pain {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .pain-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+    .pain-card .icon { font-size: 28px; margin-bottom: 12px; }
+    .pain-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: #e0e7ff; }
+    .pain-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+    /* ── HOW IT WORKS ───────────────────────── */
+    #how {
+      background: var(--bg);
+    }
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+      position: relative;
+    }
+    .how-step {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      position: relative;
+    }
+    .step-num {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg, var(--indigo), var(--indigo-light));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 18px;
+      margin-bottom: 16px;
+    }
+    .how-step h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+    .how-step p { font-size: 14px; color: var(--text-muted); }
+
+    /* ── SOCIAL PROOF ───────────────────────── */
+    #social {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .video-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #000;
+      position: relative;
+    }
+    .video-wrap iframe {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16/9;
+      border: none;
+    }
+    .video-label {
+      padding: 12px 16px;
+      background: var(--surface);
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* ── OBJECTIONS ─────────────────────────── */
+    #objections { background: var(--bg); }
+    .obj-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 40px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .obj-item {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .obj-q {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 22px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 15px;
+      gap: 12px;
+    }
+    .obj-q .arrow {
+      width: 28px; height: 28px; min-width: 28px;
+      background: rgba(99,102,241,0.15);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .2s;
+      font-size: 14px;
+    }
+    .obj-item.open .obj-q .arrow { transform: rotate(180deg); }
+    .obj-a {
+      display: none;
+      padding: 0 22px 18px;
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.7;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+    }
+    .obj-item.open .obj-a { display: block; }
+
+    /* ── BENEFITS ───────────────────────────── */
+    #benefits { background: var(--bg2); border-top: 1px solid var(--border); }
+    .benefits-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 40px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+    }
+    .benefit-icon {
+      font-size: 22px;
+      min-width: 28px;
+    }
+    .benefit-item p { font-size: 15px; color: var(--text); line-height: 1.5; }
+    .benefit-item p strong { color: #c7d2fe; }
+
+    /* ── OFFER ──────────────────────────────── */
+    #offer { background: var(--bg); }
+    .offer-box {
+      background: var(--bg3);
+      border: 2px solid var(--indigo);
+      border-radius: 20px;
+      padding: 48px 36px;
+      max-width: 680px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+    .offer-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--indigo), #7c3aed, var(--indigo-light));
+    }
+    .offer-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #dc2626, #ef4444);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .offer-price-old {
+      font-size: 18px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      margin-bottom: 4px;
+    }
+    .offer-price {
+      font-size: 64px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .offer-price sub {
+      font-size: 26px;
+      font-weight: 700;
+      vertical-align: middle;
+    }
+    .offer-note { font-size: 14px; color: var(--text-muted); margin-bottom: 32px; }
+
+    .offer-includes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+    @media (max-width: 480px) { .offer-includes { grid-template-columns: 1fr; } }
+    .offer-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+    .offer-item .check { color: var(--green-light); font-weight: 700; }
+    .offer-bonus {
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.25);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+    .offer-bonus h4 { font-size: 15px; font-weight: 700; margin-bottom: 12px; color: #a5b4fc; }
+    .offer-bonus ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .offer-bonus li { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+    .offer-bonus li .strike { color: var(--text-muted); font-size: 12px; text-decoration: line-through; margin-left: 4px; }
+
+    .guarantee {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 16px;
+    }
+    .guarantee-icon { font-size: 24px; }
+
+    /* ── ABOUT ──────────────────────────────── */
+    #about { background: var(--bg2); border-top: 1px solid var(--border); }
+    .about-inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 36px;
+      align-items: start;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    @media (max-width: 560px) { .about-inner { grid-template-columns: 1fr; } }
+    .about-img {
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--indigo);
+      display: block;
+    }
+    .about-name { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
+    .about-role { font-size: 14px; color: #818cf8; font-weight: 600; margin-bottom: 16px; }
+    .about-bio { font-size: 15px; color: var(--text-muted); line-height: 1.8; }
+
+    /* ── FAQ ────────────────────────────────── */
+    #faq { background: var(--bg); }
+    .faq-list {
+      max-width: 680px;
+      margin: 40px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .faq-item {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .faq-q {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 22px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 15px;
+      gap: 12px;
+      user-select: none;
+    }
+    .faq-q .arr {
+      font-size: 20px;
+      transition: transform .2s;
+      min-width: 20px;
+      color: var(--indigo-light);
+    }
+    .faq-item.open .faq-q .arr { transform: rotate(180deg); }
+    .faq-a {
+      display: none;
+      padding: 14px 22px 18px;
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.8;
+      border-top: 1px solid var(--border);
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ── FINAL CTA ──────────────────────────── */
+    #final {
+      background: radial-gradient(ellipse 80% 60% at 50% 110%, rgba(99,102,241,0.22) 0%, transparent 70%), var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 80px 0;
+      text-align: center;
+    }
+    #final .section-title { max-width: 640px; margin: 0 auto 16px; }
+
+    /* ── FOOTER ─────────────────────────────── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 32px 20px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 2;
+    }
+
+    /* ── STICKY CTA ─────────────────────────── */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(10,10,20,0.95);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      z-index: 100;
+      transform: translateY(100%);
+      transition: transform .3s;
+    }
+    .sticky-cta.visible { transform: translateY(0); }
+    .sticky-cta p { font-size: 14px; font-weight: 600; }
+    @media (max-width: 480px) { .sticky-cta { flex-direction: column; padding: 14px 20px; } .sticky-cta p { display: none; } }
+
+    /* ── WHATSAPP FLOAT ─────────────────────── */
+    .wa-float {
+      position: fixed;
+      bottom: 90px; right: 20px;
+      background: #25d366;
+      color: #fff;
+      border-radius: 50%;
+      width: 56px; height: 56px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+      text-decoration: none;
+      z-index: 99;
+      transition: transform .2s;
+    }
+    .wa-float:hover { transform: scale(1.1); }
+    .wa-float svg { width: 28px; height: 28px; fill: #fff; }
+
+    /* ── DIVIDER ────────────────────────────── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0;
+    }
+
+    /* ── COUNTDOWN ──────────────────────────── */
+    .countdown-wrap {
+      background: rgba(234,179,8,0.1);
+      border: 1px solid rgba(234,179,8,0.3);
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      margin-bottom: 24px;
+      font-size: 14px;
+      color: var(--yellow);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .countdown { font-size: 20px; font-weight: 900; letter-spacing: .05em; }
+
+    /* ── STARS ──────────────────────────────── */
+    .stars { color: var(--yellow); font-size: 18px; letter-spacing: 2px; }
+
+    @media (max-width: 640px) {
+      .section { padding: 52px 0; }
+      .offer-box { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ANNOUNCE BAR -->
+<div class="announce">
+  🔥 <strong>Oferta de Lançamento:</strong> R$ 97,00 por pagamento único — <span>preço pode subir a qualquer momento</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-tag">🚨 Exclusivo para donos de negócios locais</div>
+
+    <h1 class="hero-headline">
+      Seu Cliente Mandou Mensagem às 22h.<br>
+      Você Viu Só de Manhã.<br>
+      <span class="accent">Ele Foi para o Concorrente.</span>
+    </h1>
+
+    <p class="hero-sub">
+      Ative hoje um Agente 24/7 que responde WhatsApp e Instagram em minutos (não horas),
+      qualifica, agenda, faz follow-up automático e mantém os leads quentes —
+      <strong>sem depender de você estar online.</strong>
+    </p>
+
+    <!-- VIDEO -->
+    <div class="hero-video-wrap">
+      <video controls preload="metadata">
+        <source src="https://www.agente24h.destaqueseagora.com.br/vsl-assistencia.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo.
+      </video>
+    </div>
+
+    <a href="https://app.monetizze.com.br/checkout/DYQ362359" class="btn-primary" target="_blank" rel="noopener" onclick="fbq('track','InitiateCheckout')" target="_blank" rel="noopener">
+      QUERO MEU AGENTE 24/7 — R$ 97,00
+    </a>
+
+    <div class="hero-badges">
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.485 1.431a1.474 1.474 0 0 1 2.104 2.062l-7.84 9.801a1.474 1.474 0 0 1-2.12.04L.431 8.138a1.474 1.474 0 0 1 2.084-2.083l4.111 4.112 6.82-8.68a.459.459 0 0 1 .04-.045z"/></svg>
+        Acesso imediato
+      </span>
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.485 1.431a1.474 1.474 0 0 1 2.104 2.062l-7.84 9.801a1.474 1.474 0 0 1-2.12.04L.431 8.138a1.474 1.474 0 0 1 2.084-2.083l4.111 4.112 6.82-8.68a.459.459 0 0 1 .04-.045z"/></svg>
+        7 dias de garantia
+      </span>
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.485 1.431a1.474 1.474 0 0 1 2.104 2.062l-7.84 9.801a1.474 1.474 0 0 1-2.12.04L.431 8.138a1.474 1.474 0 0 1 2.084-2.083l4.111 4.112 6.82-8.68a.459.459 0 0 1 .04-.045z"/></svg>
+        Pagamento seguro
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     DOR / PAIN POINTS
+═══════════════════════════════════════════ -->
+<section id="pain" class="section">
+  <div class="container text-center">
+    <div class="tag">O problema real</div>
+    <h2 class="section-title">Você Perde Dinheiro Toda Vez Que…</h2>
+    <p class="section-sub">Enquanto você está ocupado atendendo um cliente, outro está desistindo de esperar.</p>
+
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="icon">🌙</div>
+        <h3>Fora do horário comercial</h3>
+        <p>Leads chegam às 21h, 22h, fim de semana. Sem resposta rápida, eles vão para o próximo da lista.</p>
+      </div>
+      <div class="pain-card">
+        <div class="icon">🔁</div>
+        <h3>Follow-up manual cansativo</h3>
+        <p>"Posso te ligar amanhã?" — e você esquece, ou não tem tempo, e o cliente some.</p>
+      </div>
+      <div class="pain-card">
+        <div class="icon">📲</div>
+        <h3>Comentários no Instagram ignorados</h3>
+        <p>Alguém comenta "qual o preço?". Você vê 6 horas depois. Ele já comprou em outro lugar.</p>
+      </div>
+      <div class="pain-card">
+        <div class="icon">📅</div>
+        <h3>Agenda desorganizada</h3>
+        <p>Clientes confirmam mas não aparecem. Sem lembrete automático, o no-show vira rotina.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     HOW IT WORKS
+═══════════════════════════════════════════ -->
+<section id="how" class="section">
+  <div class="container text-center">
+    <div class="tag">Como funciona</div>
+    <h2 class="section-title">Em Menos de 1 Hora Você Tem um Agente no Ar</h2>
+    <p class="section-sub">Simples de ativar. Poderoso no resultado. Sem precisar saber programar.</p>
+
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="step-num">1</div>
+        <h3>Acesse e configure</h3>
+        <p>Você recebe acesso imediato e conecta seu WhatsApp e Instagram. Leva menos de 1 hora com nosso guia passo a passo.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-num">2</div>
+        <h3>O Agente entra em ação</h3>
+        <p>Responde em minutos, qualifica o interesse do cliente, agenda diagnósticos e envia lembretes automáticos.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-num">3</div>
+        <h3>Você fecha mais negócios</h3>
+        <p>Menos leads perdidos, mais agendamentos, menos no-show. Você vê a diferença já na primeira semana.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SOCIAL PROOF — TESTIMONIALS
+═══════════════════════════════════════════ -->
+<section id="social" class="section">
+  <div class="container text-center">
+    <div class="tag">Resultados reais</div>
+    <h2 class="section-title">O Que Nossos Clientes Estão Dizendo</h2>
+    <p class="section-sub">Donos de negócios que ativaram o Agente 24/7 e já estão vendo resultados.</p>
+
+    <div class="testimonials-grid">
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/TAavdNlb5x4"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          title="Depoimento Cliente 1"
+        ></iframe>
+        <div class="video-label">⭐⭐⭐⭐⭐ Yann — Resultados Reais</div>
+      </div>
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/01rgeUQbPqc"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          title="Depoimento Cliente 3"
+        ></iframe>
+        <div class="video-label">⭐⭐⭐⭐⭐ Marlon — Transformação Digital</div>
+      </div>
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/zhHo-P__hVc"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          title="Depoimento Cliente 4"
+        ></iframe>
+        <div class="video-label">⭐⭐⭐⭐⭐ Wender — Escalabilidade</div>
+      </div>
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/LP1xRcs2s3Q"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          title="Depoimento Cliente 5"
+        ></iframe>
+        <div class="video-label">⭐⭐⭐⭐⭐ Deyvison — TotalTech</div>
+      </div>
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/WvQE916Knds"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          title="Depoimento Shorts"
+        ></iframe>
+        <div class="video-label">⭐⭐⭐⭐⭐ Luiz Fernando — Impacto Imediato</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     OBJECTIONS — É PARA MIM?
+═══════════════════════════════════════════ -->
+<section id="objections" class="section">
+  <div class="container text-center">
+    <div class="tag">É para o meu negócio?</div>
+    <h2 class="section-title">Talvez Você Esteja Pensando…</h2>
+    <p class="section-sub">Essas são as dúvidas mais comuns — e a resposta provavelmente vai te surpreender.</p>
+
+    <div class="obj-list">
+      <div class="obj-item">
+        <div class="obj-q" onclick="toggle(this)">
+          <span>"Meu time é pequeno, não sei se funciona para mim."</span>
+          <div class="arrow">▼</div>
+        </div>
+        <div class="obj-a">
+          Foi feito exatamente para quem tem equipe enxuta. O Agente funciona como um atendente extra que nunca cansa, nunca falta e nunca pede aumento.
+        </div>
+      </div>
+      <div class="obj-item">
+        <div class="obj-q" onclick="toggle(this)">
+          <span>"Já tentei robô antes e não funcionou."</span>
+          <div class="arrow">▼</div>
+        </div>
+        <div class="obj-a">
+          Chatbots genéricos falham porque usam scripts genéricos. O Agente 24/7 usa scripts específicos para o seu nicho, com linguagem e objeções do seu mercado — não parece robô.
+        </div>
+      </div>
+      <div class="obj-item">
+        <div class="obj-q" onclick="toggle(this)">
+          <span>"Final de semana não tenho ninguém para atender."</span>
+          <div class="arrow">▼</div>
+        </div>
+        <div class="obj-a">
+          Esse é exatamente o cenário onde o Agente brilha. Ele mantém a fila de respostas e os lembretes ativos 24/7 — sábado, domingo, feriado, madrugada.
+        </div>
+      </div>
+      <div class="obj-item">
+        <div class="obj-q" onclick="toggle(this)">
+          <span>"Não tenho CRM nem sistema de gestão."</span>
+          <div class="arrow">▼</div>
+        </div>
+        <div class="obj-a">
+          Sem problema. Você recebe uma planilha de gestão de leads inclusa. E se já tiver CRM, é possível integrar.
+        </div>
+      </div>
+      <div class="obj-item">
+        <div class="obj-q" onclick="toggle(this)">
+          <span>"E os comentários do Instagram? Funciona lá também?"</span>
+          <div class="arrow">▼</div>
+        </div>
+        <div class="obj-a">
+          Sim. O Agente responde comentários com mensagens-gancho que levam o cliente do feed direto para o WhatsApp, onde a conversa continua de forma privada.
+        </div>
+      </div>
+      <div class="obj-item">
+        <div class="obj-q" onclick="toggle(this)">
+          <span>"Funciona com WhatsApp Business / Z-API / Evolution?"</span>
+          <div class="arrow">▼</div>
+        </div>
+        <div class="obj-a">
+          Sim. O Agente 24/7 é compatível com WhatsApp Business, Z-API, Evolution API e Chatwoot. Você não precisa trocar o que já usa.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     BENEFITS — O QUE VOCÊ DESTRAVA
+═══════════════════════════════════════════ -->
+<section id="benefits" class="section">
+  <div class="container text-center">
+    <div class="tag">O que você recebe</div>
+    <h2 class="section-title">O Que Você Destrava ao Ativar Seu Agente</h2>
+    <p class="section-sub">Estratégias práticas, scripts prontos e automações que trabalham enquanto você dorme.</p>
+
+    <div class="benefits-list">
+      <div class="benefit-item">
+        <div class="benefit-icon">🤖</div>
+        <p><strong>Atendimento 24/7 sem parecer robô</strong> — modelo de tom + variantes para manter a conversa natural.</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">🚨</div>
+        <p><strong>7 erros fatais no WhatsApp</strong> que fazem empresas perderem 30% dos leads — e como corrigir agora.</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">🔄</div>
+        <p><strong>3 formatos de follow-up</strong> que não soam insistentes e recuperam clientes que sumiram.</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">💬</div>
+        <p>Como transformar <strong>"vou pensar"</strong> em <strong>"vamos agendar"</strong> com 1 mensagem estratégica automática.</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">📅</div>
+        <p><strong>Modelo de agendamento</strong> que reduz no-show em até 40% com lembretes automáticos no momento certo.</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">⚡</div>
+        <p><strong>1 gatilho de urgência</strong> que gera ação sem soar forçado — e funciona para qualquer nicho.</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">💎</div>
+        <p>Como criar <strong>senso de exclusividade</strong> sem inventar escassez falsa e manter a credibilidade.</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">🏆</div>
+        <p>Como construir <strong>autoridade antes do diagnóstico</strong> para que o cliente chegue pronto para fechar.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 40px;">
+      <a href="https://app.monetizze.com.br/checkout/DYQ362359" class="btn-primary" target="_blank" rel="noopener" onclick="fbq('track','AddToCart')">
+        QUERO TODOS ESSES BENEFÍCIOS
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     OFFER
+═══════════════════════════════════════════ -->
+<section id="offer" class="section">
+  <div class="container text-center">
+    <div class="tag">Oferta especial de lançamento</div>
+    <h2 class="section-title">Invista Uma Vez.<br>Recupere no Primeiro Cliente.</h2>
+
+    <div class="offer-box">
+      <div class="offer-badge">🔥 Preço de lançamento — pode subir</div>
+
+      <div class="countdown-wrap">
+        ⏳ Oferta encerra em: <span class="countdown" id="timer">--:--:--</span>
+      </div>
+
+      <div class="offer-price-old">De R$ 297,00</div>
+      <div class="offer-price"><sub>R$</sub> 97<small style="font-size:28px">,00</small></div>
+      <div class="offer-note">Pagamento único • Sem mensalidade • Acesso imediato</div>
+
+      <h3 style="font-size:15px;font-weight:700;margin-bottom:16px;text-align:left;color:#c7d2fe;">✅ O que você recebe:</h3>
+      <div class="offer-includes">
+        <div class="offer-item"><span class="check">✓</span> Agente 24/7 (WhatsApp + Instagram)</div>
+        <div class="offer-item"><span class="check">✓</span> Qualificação automática de leads</div>
+        <div class="offer-item"><span class="check">✓</span> Agendamento automático</div>
+        <div class="offer-item"><span class="check">✓</span> Follow-up automático</div>
+        <div class="offer-item"><span class="check">✓</span> Planilha de gestão inclusa</div>
+        <div class="offer-item"><span class="check">✓</span> Scripts por nicho</div>
+      </div>
+
+      <div class="offer-bonus">
+        <h4>🎁 3 Bônus Exclusivos (valor total: R$ 243,00)</h4>
+        <ul>
+          <li>✨ Script Telefônico Pronto <span class="strike">R$ 49,00</span></li>
+          <li>✨ Workshop de Atendimento <span class="strike">R$ 97,00</span></li>
+          <li>✨ Suporte via WhatsApp <span class="strike">R$ 97,00</span></li>
+        </ul>
+      </div>
+
+      <a href="https://app.monetizze.com.br/checkout/DYQ362359" class="btn-primary" target="_blank" rel="noopener" style="width:100%;display:block;text-align:center;" onclick="fbq('track','Purchase',{value:97,currency:'BRL'})">
+        GARANTIR MEU AGENTE — R$ 97,00
+      </a>
+
+      <div class="guarantee">
+        <span class="guarantee-icon">🛡️</span>
+        <span><strong>7 dias de garantia incondicional.</strong> Não funcionou? Devolvemos 100% sem perguntas.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     ABOUT
+═══════════════════════════════════════════ -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:40px;">
+      <div class="tag">Quem está por trás</div>
+      <h2 class="section-title">Criado por Quem Viveu o Problema</h2>
+    </div>
+
+    <div class="about-inner">
+      <img
+        src="https://www.agente24h.destaqueseagora.com.br/FabioPorcelli.PNG"
+        alt="Fábio Porcelli"
+        class="about-img"
+      />
+      <div>
+        <div class="about-name">Fábio Rafael Porcelli Caro</div>
+        <div class="about-role">Fundador — Destaque-se Marketing Estratégico</div>
+        <p class="about-bio">
+          Mais de 6 anos especializados em automação de atendimento e vendas. Já ajudou centenas de empresários a transformarem seus canais de mensagens em máquinas de vendas — sem depender de mais funcionários ou mais horas de trabalho.
+          <br><br>
+          Palestrante na <strong>Expo Empreender Cajamar</strong>, compartilha estratégias que funcionam no mundo real, testadas em negócios locais com orçamento limitado e equipes enxutas.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FAQ
+═══════════════════════════════════════════ -->
+<section id="faq" class="section">
+  <div class="container text-center">
+    <div class="tag">Perguntas frequentes</div>
+    <h2 class="section-title">Ainda tem dúvidas?</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Como funciona exatamente?</span>
+          <span class="arr">▾</span>
+        </div>
+        <div class="faq-a">
+          Você conecta seu WhatsApp e Instagram seguindo o guia passo a passo incluso. Em menos de 1 hora o agente está respondendo automaticamente, qualificando leads, agendando e enviando follow-ups — sem você precisar fazer nada manualmente.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Preciso saber programar?</span>
+          <span class="arr">▾</span>
+        </div>
+        <div class="faq-a">
+          Não. O setup é guiado, sem código. Se você sabe usar WhatsApp, você consegue ativar o Agente 24/7.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Funciona com WhatsApp Business / Z-API / Evolution API?</span>
+          <span class="arr">▾</span>
+        </div>
+        <div class="faq-a">
+          Sim. Compatível com WhatsApp Business, Z-API, Evolution API e Chatwoot. Você não precisa trocar o que já usa.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Qual é a garantia?</span>
+          <span class="arr">▾</span>
+        </div>
+        <div class="faq-a">
+          7 dias de garantia incondicional. Se por qualquer motivo não fizer sentido para o seu negócio, devolvemos 100% do valor — sem burocracia e sem perguntas.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Funciona para qualquer nicho?</span>
+          <span class="arr">▾</span>
+        </div>
+        <div class="faq-a">
+          O Agente foi desenvolvido com foco em negócios locais e prestadores de serviço. Scripts e fluxos são adaptáveis ao seu nicho específico.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Tem mensalidade?</span>
+          <span class="arr">▾</span>
+        </div>
+        <div class="faq-a">
+          Não. É pagamento único de R$ 97,00. Sem assinatura mensal, sem taxa recorrente.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>E se eu tiver dúvidas durante a configuração?</span>
+          <span class="arr">▾</span>
+        </div>
+        <div class="faq-a">
+          Você tem suporte direto via WhatsApp incluso como bônus. Nossa equipe te ajuda na configuração e nas primeiras semanas de uso.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FINAL CTA
+═══════════════════════════════════════════ -->
+<section id="final">
+  <div class="container">
+    <h2 class="section-title">Chega de Perder Cliente para Quem Responde Mais Rápido.</h2>
+    <p class="section-sub" style="margin-bottom:32px;">
+      Por R$ 97,00 você coloca um agente para trabalhar 24h por dia, 7 dias por semana — enquanto você descansa, atende outro cliente ou aproveita o fim de semana.
+    </p>
+    <a href="https://app.monetizze.com.br/checkout/DYQ362359" class="btn-primary" target="_blank" rel="noopener" onclick="fbq('track','InitiateCheckout')">
+      GARANTIR AGORA — R$ 97,00
+    </a>
+    <div class="hero-badges" style="margin-top:20px;">
+      <span>🛡️ 7 dias de garantia</span>
+      <span>⚡ Acesso imediato</span>
+      <span>🔒 Pagamento 100% seguro</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Destaque-se Marketing Estratégico LTDA</strong> — CNPJ: 51.022.177/0001-20</p>
+  <p>WhatsApp: (11) 95371-9569 &nbsp;|&nbsp; @fabioporcelli</p>
+  <p style="margin-top:12px;font-size:12px;">© 2025 Todos os direitos reservados. Este site não é afiliado ao Facebook ou Meta.<br>Resultados variam conforme contexto e execução.</p>
+</footer>
+
+<!-- STICKY CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <p>🔥 Oferta de lançamento — R$ 97,00 por pagamento único</p>
+  <a href="https://app.monetizze.com.br/checkout/DYQ362359" class="btn-primary" target="_blank" rel="noopener" style="font-size:15px;padding:12px 28px;" onclick="fbq('track','InitiateCheckout')">
+    GARANTIR AGORA
+  </a>
+</div>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/5511953719569?text=Ol%C3%A1!%20Tenho%20d%C3%BAvidas%20sobre%20o%20Agente%2024%2F7" class="wa-float" target="_blank" rel="noopener" title="Falar no WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  // Accordion toggle
+  function toggle(el) {
+    el.parentElement.classList.toggle('open');
+  }
+  function toggleFaq(el) {
+    el.parentElement.classList.toggle('open');
+  }
+
+  // Sticky CTA
+  const hero = document.getElementById('hero');
+  const sticky = document.getElementById('stickyCta');
+  const observer = new IntersectionObserver(([e]) => {
+    sticky.classList.toggle('visible', !e.isIntersecting);
+  }, { threshold: 0 });
+  observer.observe(hero);
+
+  // Countdown — 24h rolling timer
+  function startTimer() {
+    const key = 'agente247_timer_end';
+    let end = parseInt(localStorage.getItem(key) || '0');
+    const now = Date.now();
+    if (!end || end < now) {
+      end = now + 24 * 60 * 60 * 1000;
+      localStorage.setItem(key, end);
+    }
+    function tick() {
+      const rem = Math.max(0, end - Date.now());
+      const h = String(Math.floor(rem / 3600000)).padStart(2, '0');
+      const m = String(Math.floor((rem % 3600000) / 60000)).padStart(2, '0');
+      const s = String(Math.floor((rem % 60000) / 1000)).padStart(2, '0');
+      document.getElementById('timer').textContent = `${h}:${m}:${s}`;
+    }
+    tick();
+    setInterval(tick, 1000);
+  }
+  startTimer();
+
+  // Smooth scroll for anchors
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+
+</body>
+</html>
