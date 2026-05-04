@@ -1123,92 +1123,92 @@
   .sticky-cta.reveal-block.visible.show-sticky { transform: translateY(0); }
 </style>
 
+<script src="https://www.youtube.com/iframe_api"></script>
 <script>
-  // ── BARRA DE PROGRESSO + REVELAÇÃO ──────────
-  (function() {
-    const video     = document.getElementById('heroVideo');
-    const bar       = document.getElementById('progressBar');
-    const label     = document.getElementById('progressLabel');
-    const blocks    = document.querySelectorAll('.reveal-block');
+  // ── BARRA DE PROGRESSO + REVELAÇÃO (YouTube IFrame API) ──────────
+  var ytPlayer;
+  var ytRevealed = false;
+  var ytWatched  = 0;
+  var ytLastTime = null;
+  var ytFakeTid  = null;
+  var ytInterval = null;
+  var ytStarted  = false;
 
-    let started   = false;
-    let revealed  = false;
-    let watched   = 0;
-    let lastTime  = null;
-    let fakeTid   = null;
+  var _bar    = document.getElementById('progressBar');
+  var _label  = document.getElementById('progressLabel');
+  var _blocks = document.querySelectorAll('.reveal-block');
 
-    // Progresso falso: acelerado no início, desacelera perto do fim
-    const fakeStops = [
-      { pct: 0,   ms: 0    },
-      { pct: 40,  ms: 1200 },
-      { pct: 62,  ms: 2800 },
-      { pct: 75,  ms: 4500 },
-      { pct: 83,  ms: 6500 },
-      { pct: 88,  ms: 8500 },
-      { pct: 91,  ms: 10000 },
-    ];
+  var fakeStops = [
+    { pct: 0,  ms: 0     },
+    { pct: 40, ms: 1200  },
+    { pct: 62, ms: 2800  },
+    { pct: 75, ms: 4500  },
+    { pct: 83, ms: 6500  },
+    { pct: 88, ms: 8500  },
+    { pct: 91, ms: 10000 },
+  ];
 
-    function runFake(i) {
-      if (revealed || i >= fakeStops.length - 1) return;
-      const cur  = fakeStops[i];
-      const next = fakeStops[i + 1];
-      const delay = next.ms - cur.ms;
-      fakeTid = setTimeout(() => {
-        bar.style.width = next.pct + '%';
-        runFake(i + 1);
-      }, delay);
-    }
+  function runFake(i) {
+    if (ytRevealed || i >= fakeStops.length - 1) return;
+    ytFakeTid = setTimeout(function() {
+      _bar.style.width = fakeStops[i + 1].pct + '%';
+      runFake(i + 1);
+    }, fakeStops[i + 1].ms - fakeStops[i].ms);
+  }
 
-    function reveal() {
-      if (revealed) return;
-      revealed = true;
-      clearTimeout(fakeTid);
+  function ytReveal() {
+    if (ytRevealed) return;
+    ytRevealed = true;
+    clearTimeout(ytFakeTid);
+    clearInterval(ytInterval);
 
-      // Completa a barra
-      bar.style.transition = 'width 0.5s ease';
-      bar.style.width = '100%';
-      label.textContent = '✅ Conteúdo liberado!';
-      label.style.color = '#22c55e';
+    _bar.style.transition = 'width 0.5s ease';
+    _bar.style.width = '100%';
+    _label.textContent = '✅ Conteúdo liberado!';
+    _label.style.color = '#22c55e';
 
-      setTimeout(() => {
-        // Esconde barra
-        document.getElementById('progressWrap').style.transition = 'opacity 0.5s';
-        document.getElementById('progressWrap').style.opacity = '0';
-        setTimeout(() => {
-          document.getElementById('progressWrap').style.display = 'none';
-        }, 500);
+    setTimeout(function() {
+      var wrap = document.getElementById('progressWrap');
+      wrap.style.transition = 'opacity 0.5s';
+      wrap.style.opacity = '0';
+      setTimeout(function() { wrap.style.display = 'none'; }, 500);
 
-        // Revela blocos com delay escalonado
-        blocks.forEach((el, i) => {
-          setTimeout(() => {
-            el.classList.add('visible');
-          }, i * 80);
-        });
-      }, 700);
-    }
+      _blocks.forEach(function(el, i) {
+        setTimeout(function() { el.classList.add('visible'); }, i * 80);
+      });
+    }, 700);
+  }
 
-    video.addEventListener('play', () => {
-      if (!started) {
-        started  = true;
-        lastTime = video.currentTime;
-        runFake(0);
-        label.textContent = '⏳ Carregando conteúdo... assista ao vídeo';
+  function onYouTubeIframeAPIReady() {
+    ytPlayer = new YT.Player('heroVideo', {
+      videoId: 'xb264Lja-sk',
+      playerVars: { rel: 0, modestbranding: 1, playsinline: 1 },
+      events: {
+        onStateChange: function(e) {
+          if (e.data === YT.PlayerState.PLAYING) {
+            if (!ytStarted) {
+              ytStarted = true;
+              runFake(0);
+              _label.textContent = '⏳ Carregando conteúdo... assista ao vídeo';
+            }
+            ytLastTime = ytPlayer.getCurrentTime();
+            clearInterval(ytInterval);
+            ytInterval = setInterval(function() {
+              if (ytRevealed) { clearInterval(ytInterval); return; }
+              var cur = ytPlayer.getCurrentTime();
+              var delta = cur - ytLastTime;
+              if (delta > 0 && delta < 1.5) ytWatched += delta;
+              ytLastTime = cur;
+              if (ytWatched >= 10) ytReveal();
+            }, 250);
+          } else {
+            clearInterval(ytInterval);
+            ytLastTime = null;
+          }
+        }
       }
     });
-
-    video.addEventListener('timeupdate', () => {
-      if (revealed) return;
-      if (lastTime !== null) {
-        const delta = video.currentTime - lastTime;
-        if (delta > 0 && delta < 1) watched += delta;
-      }
-      lastTime = video.currentTime;
-      if (watched >= 10) reveal();
-    });
-
-    video.addEventListener('pause',  () => { lastTime = null; });
-    video.addEventListener('seeked', () => { lastTime = video.currentTime; });
-  })();
+  }
 </script>
 
 <script>
