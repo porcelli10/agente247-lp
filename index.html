@@ -1258,7 +1258,9 @@
               var delta = cur - ytLastTime;
               if (delta > 0 && delta < 1.5) ytWatched += delta;
               ytLastTime = cur;
-              if (ytWatched >= 10) ytReveal();
+              var dur = ytPlayer.getDuration();
+              var threshold = dur > 0 ? dur * 0.5 : 9999;
+              if (ytWatched >= threshold) ytReveal();
             }, 250);
           } else {
             clearInterval(ytInterval);
