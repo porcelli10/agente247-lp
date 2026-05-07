@@ -1228,6 +1228,12 @@
     }, 700);
   }
 
+  function watchBtnClick() {
+    var btn = document.getElementById('watchBtn');
+    if (btn) { btn.style.display = 'none'; }
+    if (ytPlayer && ytPlayer.playVideo) ytPlayer.playVideo();
+  }
+
   function onYouTubeIframeAPIReady() {
     ytPlayer = new YT.Player('heroVideo', {
       width: '100%',
@@ -1237,6 +1243,8 @@
       events: {
         onStateChange: function(e) {
           if (e.data === YT.PlayerState.PLAYING) {
+            var btn = document.getElementById('watchBtn');
+            if (btn) { btn.style.display = 'none'; }
             if (!ytStarted) {
               ytStarted = true;
               runFake(0);
