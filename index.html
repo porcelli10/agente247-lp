@@ -90,8 +90,13 @@
       font-size: 14px;
       font-weight: 600;
       letter-spacing: .01em;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
     }
     .announce span { opacity: .85; }
+    .announce.reveal-block { transform: translateY(-100%); }
+    .announce.reveal-block.visible { transform: translateY(0); }
 
     /* ── HERO ───────────────────────────────── */
     #hero {
