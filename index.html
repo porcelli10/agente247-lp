@@ -659,10 +659,20 @@
     </p>
 
     <!-- VIDEO -->
-    <div class="hero-video-wrap">
+    <div class="hero-video-wrap" style="position:relative;">
       <div class="yt-container">
         <div id="heroVideo"></div>
       </div>
+      <button id="watchBtn" onclick="watchBtnClick()" style="
+        position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+        background:linear-gradient(135deg,#6366f1,#4338ca);
+        color:#fff;font-size:16px;font-weight:800;
+        padding:14px 28px;border-radius:100px;border:none;cursor:pointer;
+        letter-spacing:.04em;text-transform:uppercase;
+        box-shadow:0 0 0 0 rgba(99,102,241,0.7);
+        animation:watchPulse 1.6s infinite;
+        z-index:10;white-space:nowrap;
+      ">▶ Assista aqui</button>
     </div>
 
     <!-- BARRA DE PROGRESSO FALSA -->
