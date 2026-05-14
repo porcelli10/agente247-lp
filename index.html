@@ -1191,23 +1191,32 @@
   var _label  = document.getElementById('progressLabel');
   var _blocks = document.querySelectorAll('.reveal-block');
 
-  var fakeStops = [
-    { pct: 0,  ms: 0      },
-    { pct: 45, ms: 2000   },
-    { pct: 65, ms: 6000   },
-    { pct: 76, ms: 14000  },
-    { pct: 83, ms: 28000  },
-    { pct: 88, ms: 55000  },
-    { pct: 92, ms: 110000 },
-  ];
+  var autoRevealInterval = null;
 
-  function runFake(i) {
-    if (ytRevealed || i >= fakeStops.length - 1) return;
-    ytFakeTid = setTimeout(function() {
-      _bar.style.width = fakeStops[i + 1].pct + '%';
-      runFake(i + 1);
-    }, fakeStops[i + 1].ms - fakeStops[i].ms);
+  function startAutoReveal() {
+    var duration = 5000;
+    var startTime = Date.now();
+    _label.textContent = '⏳ Liberando conteúdo em 5s...';
+
+    autoRevealInterval = setInterval(function() {
+      if (ytRevealed) { clearInterval(autoRevealInterval); return; }
+      var elapsed = Date.now() - startTime;
+      var progress = Math.min(elapsed / duration, 1);
+      _bar.style.width = (progress * 100) + '%';
+
+      var remaining = Math.ceil((duration - elapsed) / 1000);
+      if (remaining > 0) {
+        _label.textContent = '⏳ Liberando conteúdo em ' + remaining + 's...';
+      }
+
+      if (elapsed >= duration) {
+        clearInterval(autoRevealInterval);
+        ytReveal();
+      }
+    }, 100);
   }
+
+  function runFake() {}
 
   function ytReveal() {
     if (ytRevealed) return;
