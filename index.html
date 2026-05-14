@@ -1247,8 +1247,6 @@
     if (ytPlayer && ytPlayer.playVideo) ytPlayer.playVideo();
   }
 
-  window.addEventListener('DOMContentLoaded', startAutoReveal);
-
   function onYouTubeIframeAPIReady() {
     ytPlayer = new YT.Player('heroVideo', {
       width: '100%',
@@ -1262,6 +1260,7 @@
             if (btn) { btn.style.display = 'none'; }
             if (!ytStarted) {
               ytStarted = true;
+              startAutoReveal();
             }
             ytLastTime = ytPlayer.getCurrentTime();
             clearInterval(ytInterval);
