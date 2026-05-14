@@ -1247,6 +1247,8 @@
     if (ytPlayer && ytPlayer.playVideo) ytPlayer.playVideo();
   }
 
+  window.addEventListener('DOMContentLoaded', startAutoReveal);
+
   function onYouTubeIframeAPIReady() {
     ytPlayer = new YT.Player('heroVideo', {
       width: '100%',
