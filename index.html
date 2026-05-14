@@ -1262,8 +1262,6 @@
             if (btn) { btn.style.display = 'none'; }
             if (!ytStarted) {
               ytStarted = true;
-              runFake(0);
-              _label.textContent = '⏳ Carregando conteúdo... assista ao vídeo';
             }
             ytLastTime = ytPlayer.getCurrentTime();
             clearInterval(ytInterval);
